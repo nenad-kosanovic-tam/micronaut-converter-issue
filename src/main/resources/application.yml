@@ -1,0 +1,22 @@
+micronaut:
+  application:
+    name: micronaut-converter-issue
+  server:
+    port: 8100
+
+r2dbc:
+  datasources:
+    default:
+      url: r2dbc:mariadb://${db.host}/${db.database}
+      username: ${db.user}
+      password: ${db.pass}
+      dialect: mysql
+
+flyway:
+  datasources:
+    default:
+      url: jdbc:mariadb://${db.host}/${db.database}
+      username: ${db.user}
+      password: ${db.pass}
+      locations: classpath:db/migration
+      enabled: true
